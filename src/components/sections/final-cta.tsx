@@ -1,5 +1,6 @@
 "use client";
 
+import * as React from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -88,6 +89,12 @@ const FAQS = [
 
 export function FinalCta() {
   const shouldReduceMotion = useReducedMotion();
+  const [mounted, setMounted] = React.useState(false);
+
+  React.useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- one-time hydration guard so radar/virus animation state matches server (unrendered) then client (rendered)
+    setMounted(true);
+  }, []);
 
   return (
     <>
@@ -157,7 +164,7 @@ export function FinalCta() {
                 <div className="relative hidden h-[28rem] w-96 shrink-0 items-center justify-center lg:flex">
                   <motion.div
                     className="absolute inset-0"
-                    animate={shouldReduceMotion ? undefined : { opacity: [0.32, 0.48, 0.32] }}
+                    animate={mounted && !shouldReduceMotion ? { opacity: [0.32, 0.48, 0.32] } : undefined}
                     transition={{ duration: RADAR_DURATION, repeat: Infinity, ease: "easeInOut" }}
                   >
                     <Image
@@ -170,7 +177,8 @@ export function FinalCta() {
                   </motion.div>
 
                   <div className="pointer-events-none absolute left-1/2 top-1/2 h-16 w-16 -translate-x-[calc(50%+20px)] -translate-y-1/2">
-                    {!shouldReduceMotion &&
+                    {mounted &&
+                      !shouldReduceMotion &&
                       RADAR_RINGS.map((ring) => (
                         <motion.span
                           key={ring}
@@ -188,7 +196,8 @@ export function FinalCta() {
                   </div>
 
                   <div className="pointer-events-none absolute left-1/2 top-1/2 h-16 w-16 -translate-x-[calc(50%+20px)] -translate-y-1/2">
-                    {!shouldReduceMotion &&
+                    {mounted &&
+                      !shouldReduceMotion &&
                       VIRUS_ATTACKS.map(({ angle, delay }) => {
                         const rad = (angle * Math.PI) / 180;
                         const nearR = 130;

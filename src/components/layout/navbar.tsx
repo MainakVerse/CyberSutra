@@ -8,6 +8,8 @@ import { Button } from "@/components/ui/button";
 import { Sheet, SheetContent, SheetTrigger, SheetClose } from "@/components/ui/sheet";
 import { ThemeToggle } from "@/components/theme/theme-toggle";
 import { PlatformMenu } from "@/components/layout/platform-menu";
+import { SolutionsMenu } from "@/components/layout/solutions-menu";
+import { ResourcesMenu } from "@/components/layout/resources-menu";
 import { cn } from "@/lib/utils";
 
 const NAV_LINKS = [
@@ -17,10 +19,12 @@ const NAV_LINKS = [
   { label: "Company", href: "#compliance" },
 ];
 
+const DROPDOWN_LABELS = new Set(["Platform", "Solutions", "Resources"]);
+
 export function Navbar() {
   const [scrolled, setScrolled] = React.useState(false);
   const [sheetOpen, setSheetOpen] = React.useState(false);
-  const [platformOpen, setPlatformOpen] = React.useState(false);
+  const [openMenu, setOpenMenu] = React.useState<string | null>(null);
   const navRef = React.useRef<HTMLUListElement>(null);
 
   React.useEffect(() => {
@@ -31,15 +35,15 @@ export function Navbar() {
   }, []);
 
   React.useEffect(() => {
-    if (!platformOpen) return;
+    if (!openMenu) return;
 
     const onPointerDown = (event: PointerEvent) => {
       if (!navRef.current?.contains(event.target as Node)) {
-        setPlatformOpen(false);
+        setOpenMenu(null);
       }
     };
     const onKeyDown = (event: KeyboardEvent) => {
-      if (event.key === "Escape") setPlatformOpen(false);
+      if (event.key === "Escape") setOpenMenu(null);
     };
 
     document.addEventListener("pointerdown", onPointerDown);
@@ -48,7 +52,7 @@ export function Navbar() {
       document.removeEventListener("pointerdown", onPointerDown);
       document.removeEventListener("keydown", onKeyDown);
     };
-  }, [platformOpen]);
+  }, [openMenu]);
 
   return (
     <header
@@ -79,43 +83,57 @@ export function Navbar() {
         </Link>
 
         <ul ref={navRef} className="hidden items-center gap-1 lg:flex">
-          {NAV_LINKS.map((link) =>
-            link.label === "Platform" ? (
+          {NAV_LINKS.map((link) => {
+            if (!DROPDOWN_LABELS.has(link.label)) {
+              return (
+                <li key={link.href}>
+                  <Link
+                    href={link.href}
+                    className="flex h-11 items-center gap-1 rounded-lg px-4 text-sm font-medium text-text-primary transition-colors duration-200 hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0"
+                  >
+                    {link.label}
+                    {link.label !== "Company" ? (
+                      <ChevronDown className="h-4 w-4 text-text-secondary" aria-hidden="true" />
+                    ) : null}
+                  </Link>
+                </li>
+              );
+            }
+
+            const isOpen = openMenu === link.label;
+
+            return (
               <li key={link.href} className="relative">
                 <button
                   type="button"
-                  onClick={() => setPlatformOpen((open) => !open)}
-                  aria-expanded={platformOpen}
+                  onClick={() => setOpenMenu((current) => (current === link.label ? null : link.label))}
+                  aria-expanded={isOpen}
                   className="flex h-11 items-center gap-1 rounded-lg px-4 text-sm font-medium text-text-primary transition-colors duration-200 hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0"
                 >
                   {link.label}
                   <ChevronDown
                     className={cn(
                       "h-4 w-4 text-text-secondary transition-transform duration-200",
-                      platformOpen && "rotate-180"
+                      isOpen && "rotate-180"
                     )}
                     aria-hidden="true"
                   />
                 </button>
 
-                {platformOpen ? (
+                {isOpen ? (
                   <div className="fixed left-1/2 top-20 z-50 mt-2 w-[calc(100vw-2rem)] max-w-[1600px] -translate-x-1/2">
-                    <PlatformMenu onNavigate={() => setPlatformOpen(false)} />
+                    {link.label === "Platform" ? (
+                      <SolutionsMenu onNavigate={() => setOpenMenu(null)} />
+                    ) : link.label === "Resources" ? (
+                      <ResourcesMenu onNavigate={() => setOpenMenu(null)} />
+                    ) : (
+                      <PlatformMenu onNavigate={() => setOpenMenu(null)} />
+                    )}
                   </div>
                 ) : null}
               </li>
-            ) : (
-              <li key={link.href}>
-                <Link
-                  href={link.href}
-                  className="flex h-11 items-center gap-1 rounded-lg px-4 text-sm font-medium text-text-primary transition-colors duration-200 hover:bg-surface-2 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-focus-ring focus-visible:ring-offset-2 focus-visible:ring-offset-surface-0"
-                >
-                  {link.label}
-                  <ChevronDown className="h-4 w-4 text-text-secondary" aria-hidden="true" />
-                </Link>
-              </li>
-            )
-          )}
+            );
+          })}
         </ul>
 
         <div className="hidden items-center gap-1 lg:flex">

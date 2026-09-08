@@ -187,4 +187,13 @@
       linear-gradient(90deg, var(--border-default) 1px, transparent 1px);
     background-size: 32px 32px;
   }
+
+  .scrollbar-hide {
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+  }
+
+  .scrollbar-hide::-webkit-scrollbar {
+    display: none;
+  }
 }

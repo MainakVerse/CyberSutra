@@ -229,7 +229,7 @@ export function Capabilities() {
                 ) : null}
 
                 {capability.flow ? (
-                  <div className="mt-3 flex flex-nowrap items-center gap-1 overflow-x-auto pb-1">
+                  <div className="mt-3 flex flex-nowrap items-center gap-1 overflow-x-auto scrollbar-hide">
                     {capability.flow.map((step, stepIndex) => (
                       <div key={step.label} className="flex min-w-0 items-center gap-1">
                         <span
