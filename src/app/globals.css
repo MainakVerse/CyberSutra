@@ -1,0 +1,190 @@
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  color-scheme: light;
+
+  /* Surfaces */
+  --surface-0: #f4f7fb;
+  --surface-1: #ffffff;
+  --surface-2: #eef3fa;
+  --surface-3: #e4ebf5;
+
+  /* Text */
+  --text-primary: #0b1b33;
+  --text-secondary: #46587a;
+
+  /* Borders */
+  --border-default: #d6e0ef;
+
+  /* Brand */
+  --brand-primary: #1e5fd6;
+  --brand-primary-hover: #1a52ba;
+  --brand-gradient-from: #1e5fd6;
+  --brand-gradient-to: #22b8cf;
+
+  /* Semantic */
+  --color-success: #12b76a;
+  --color-warning: #f79009;
+  --color-error: #f04438;
+  --color-info: #1570ef;
+
+  /* Focus ring */
+  --focus-ring: #1e5fd6;
+}
+
+.dark {
+  color-scheme: dark;
+
+  --surface-0: #0a1220;
+  --surface-1: #0f1b2e;
+  --surface-2: #16263e;
+  --surface-3: #1c3050;
+
+  --text-primary: #eaf1fb;
+  --text-secondary: #9db2d0;
+
+  --border-default: #22344f;
+
+  --brand-primary: #3b82f6;
+  --brand-primary-hover: #5b9bff;
+  --brand-gradient-from: #3b82f6;
+  --brand-gradient-to: #22b8cf;
+
+  --color-success: #32d583;
+  --color-warning: #fdb022;
+  --color-error: #f97066;
+  --color-info: #53b1fd;
+
+  --focus-ring: #5b9bff;
+}
+
+@theme inline {
+  --color-surface-0: var(--surface-0);
+  --color-surface-1: var(--surface-1);
+  --color-surface-2: var(--surface-2);
+  --color-surface-3: var(--surface-3);
+
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+
+  --color-border-default: var(--border-default);
+
+  --color-brand-primary: var(--brand-primary);
+  --color-brand-primary-hover: var(--brand-primary-hover);
+
+  --color-success: var(--color-success);
+  --color-warning: var(--color-warning);
+  --color-error: var(--color-error);
+  --color-info: var(--color-info);
+
+  --color-focus-ring: var(--focus-ring);
+
+  --font-sans: var(--font-inter);
+  --font-mono: var(--font-jetbrains);
+
+  /* Major-Third type scale (1.25), base 16px */
+  --text-xs: 0.72rem;
+  --text-sm: 0.8rem;
+  --text-base: 1rem;
+  --text-md: 1.25rem;
+  --text-lg: 1.563rem;
+  --text-xl: 1.953rem;
+  --text-2xl: 2.441rem;
+  --text-3xl: 3.052rem;
+
+  --breakpoint-xs: 375px;
+
+  --container-page: 1440px;
+
+  --animate-accordion-down: accordion-down 200ms ease-out;
+  --animate-accordion-up: accordion-up 200ms ease-out;
+
+  @keyframes accordion-down {
+    from {
+      height: 0;
+    }
+    to {
+      height: var(--radix-accordion-content-height);
+    }
+  }
+  @keyframes accordion-up {
+    from {
+      height: var(--radix-accordion-content-height);
+    }
+    to {
+      height: 0;
+    }
+  }
+}
+
+@layer base {
+  * {
+    border-color: var(--border-default);
+  }
+
+  html {
+    scroll-behavior: smooth;
+  }
+
+  body {
+    background-color: var(--surface-0);
+    color: var(--text-primary);
+    font-family: var(--font-inter), ui-sans-serif, system-ui, sans-serif;
+    font-size: 16px;
+    line-height: 1.5;
+    transition: background-color 200ms ease, color 200ms ease;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    line-height: 1.2;
+    color: var(--text-primary);
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+
+  ::selection {
+    background-color: var(--brand-primary);
+    color: white;
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-ring);
+    outline-offset: 2px;
+    border-radius: 2px;
+  }
+
+  .tabular-nums {
+    font-variant-numeric: tabular-nums;
+  }
+
+  .measure {
+    max-width: 65ch;
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+    }
+  }
+}
+
+@layer utilities {
+  .text-gradient-brand {
+    background-image: linear-gradient(90deg, var(--brand-gradient-from), var(--brand-gradient-to));
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+  }
+
+  .bg-grid-security {
+    background-image:
+      linear-gradient(var(--border-default) 1px, transparent 1px),
+      linear-gradient(90deg, var(--border-default) 1px, transparent 1px);
+    background-size: 32px 32px;
+  }
+}

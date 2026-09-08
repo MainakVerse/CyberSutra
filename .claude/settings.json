@@ -1,0 +1,17 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(npx --yes create-next-app@latest . --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(npx --yes create-next-app@latest cybersutra-tmp --typescript --tailwind --eslint --app --src-dir --import-alias \"@/*\" --use-npm --no-turbopack)",
+      "Bash(curl -s -o /tmp/out.html -w \"%{http_code}\\\\n\" http://localhost:3000/)",
+      "WebFetch(domain:commons.wikimedia.org)",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/5/55/Emblem_of_India.svg\" -o \"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\public\\\\logos\\\\emblem-of-india.svg\")",
+      "Bash(curl -sL \"https://upload.wikimedia.org/wikipedia/commons/8/8d/Reserve_Bank_of_India_logo.svg\" -o \"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\public\\\\logos\\\\rbi.svg\")",
+      "Bash(curl -sL \"https://cdn.simpleicons.org/iso\" -o \"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\public\\\\logos\\\\iso.svg\")",
+      "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/topojson/india.json\")",
+      "Bash(curl -s \"https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/topojson/india.json\" -o \"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\public\\\\logos\\\\india-topo-test.json\" -w \"HTTP %{http_code}, size %{size_download} bytes\\\\n\")",
+      "Bash(curl -s \"http://localhost:3000\" -o /dev/null -w \"HTTP %{http_code}\\\\n\")",
+      "Bash(python3 -c ' *)"
+    ]
+  }
+}
