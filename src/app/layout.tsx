@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import type { ReactNode } from "react";
 import { Inter, JetBrains_Mono } from "next/font/google";
 import { ThemeProvider } from "@/components/theme/theme-provider";
+import { ChatWidget } from "@/components/layout/chat-widget";
 import "./globals.css";
 
 const inter = Inter({
@@ -54,7 +55,10 @@ export default function RootLayout({
         className="min-h-full flex flex-col bg-surface-0 text-text-primary"
         suppressHydrationWarning
       >
-        <ThemeProvider>{children}</ThemeProvider>
+        <ThemeProvider>
+          {children}
+          <ChatWidget />
+        </ThemeProvider>
       </body>
     </html>
   );
