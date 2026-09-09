@@ -137,8 +137,8 @@ export function Navbar() {
         </ul>
 
         <div className="hidden items-center gap-1 lg:flex">
-          <Button variant="ghost" size="default" className="border-none">
-            Sign in
+          <Button variant="ghost" size="default" className="border-none" asChild>
+            <Link href="/studio">Sign in</Link>
           </Button>
           <Button variant="primary" size="default" className="bg-[#0b1b33] hover:bg-[#132a52]">
             Request a demo
@@ -185,9 +185,11 @@ export function Navbar() {
                 <ThemeToggle />
               </div>
               <div className="mt-auto flex flex-col gap-3">
-                <Button variant="ghost" size="lg" className="w-full">
-                  Sign in
-                </Button>
+                <SheetClose asChild>
+                  <Button variant="ghost" size="lg" className="w-full" asChild>
+                    <Link href="/studio">Sign in</Link>
+                  </Button>
+                </SheetClose>
                 <Button
                   variant="primary"
                   size="lg"

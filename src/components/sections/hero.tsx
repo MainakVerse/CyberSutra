@@ -1,6 +1,7 @@
 "use client";
 
 import * as React from "react";
+import Link from "next/link";
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import {
   ArrowRight,
@@ -150,9 +151,11 @@ export function Hero() {
               Request a demo
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Button>
-            <Button variant="ghost" size="lg">
-              <Play className="h-4 w-4" aria-hidden="true" />
-              See how it works
+            <Button variant="ghost" size="lg" asChild>
+              <Link href="/studio">
+                <Play className="h-4 w-4" aria-hidden="true" />
+                See how it works
+              </Link>
             </Button>
           </div>
 

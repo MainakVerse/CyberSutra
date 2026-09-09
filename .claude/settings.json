@@ -11,7 +11,15 @@
       "Bash(curl -sI \"https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/topojson/india.json\")",
       "Bash(curl -s \"https://cdn.jsdelivr.net/gh/udit-001/india-maps-data@main/topojson/india.json\" -o \"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\public\\\\logos\\\\india-topo-test.json\" -w \"HTTP %{http_code}, size %{size_download} bytes\\\\n\")",
       "Bash(curl -s \"http://localhost:3000\" -o /dev/null -w \"HTTP %{http_code}\\\\n\")",
-      "Bash(python3 -c ' *)"
+      "Bash(python3 -c ' *)",
+      "Bash(npm run *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3411/studio)",
+      "PowerShell(node \"C:\\\\Users\\\\MAINAK~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra\\\\f807e8c2-35e2-4aa0-b9ab-4b42dd777163\\\\scratchpad\\\\shot.js\")",
+      "Bash(curl -s \"http://localhost:3000/studio\")",
+      "Bash(stat -c \"%Y %s\" \"C:\\\\Users\\\\MAINAK~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra\\\\f807e8c2-35e2-4aa0-b9ab-4b42dd777163\\\\scratchpad\\\\studio-light.png\" 2>/dev/null || ls -la \"C:\\\\Users\\\\MAINAK~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra\\\\f807e8c2-35e2-4aa0-b9ab-4b42dd777163\\\\scratchpad\\\\studio-light.png\")",
+      "Read(//c/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/**)",
+      "Bash(curl -s \"http://localhost:3000/studio\" -H \"Cache-Control: no-cache\")",
+      "Bash(tasklist //FI \"PID eq 19244\")"
     ]
   }
 }

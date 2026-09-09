@@ -2,6 +2,7 @@
 
 import * as React from "react";
 import Image from "next/image";
+import { usePathname } from "next/navigation";
 import { motion, AnimatePresence, useReducedMotion } from "framer-motion";
 import { Send, ShieldCheck, X } from "lucide-react";
 
@@ -20,6 +21,7 @@ const INITIAL_MESSAGES: Message[] = [
 ];
 
 export function ChatWidget() {
+  const pathname = usePathname();
   const [open, setOpen] = React.useState(false);
   const [messages, setMessages] = React.useState<Message[]>(INITIAL_MESSAGES);
   const [draft, setDraft] = React.useState("");
@@ -55,6 +57,8 @@ export function ChatWidget() {
     ]);
     setDraft("");
   };
+
+  if (pathname?.startsWith("/studio")) return null;
 
   return (
     <>
