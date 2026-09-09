@@ -19,7 +19,28 @@
       "Bash(stat -c \"%Y %s\" \"C:\\\\Users\\\\MAINAK~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra\\\\f807e8c2-35e2-4aa0-b9ab-4b42dd777163\\\\scratchpad\\\\studio-light.png\" 2>/dev/null || ls -la \"C:\\\\Users\\\\MAINAK~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra\\\\f807e8c2-35e2-4aa0-b9ab-4b42dd777163\\\\scratchpad\\\\studio-light.png\")",
       "Read(//c/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/**)",
       "Bash(curl -s \"http://localhost:3000/studio\" -H \"Cache-Control: no-cache\")",
-      "Bash(tasklist //FI \"PID eq 19244\")"
+      "Bash(tasklist //FI \"PID eq 19244\")",
+      "Bash(curl -s -o /dev/null -w \"studio: %{http_code}\\\\n\" http://localhost:3000/studio)",
+      "Bash(curl -s -o /dev/null -w \"threat-ops: %{http_code}\\\\n\" http://localhost:3000/studio/threat-operations)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/studio/threat-operations)",
+      "Bash(grep -oE '^  [A-Za-z0-9_]+,?$' \"c:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\node_modules\\\\lucide-react\\\\dist\\\\lucide-react.d.ts\")",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/studio/endpoint-network-cloud)",
+      "Bash(curl -sL -o world-110m.json https://cdn.jsdelivr.net/npm/world-atlas@2/countries-110m.json)",
+      "Bash(curl -sL -o india-states.json https://raw.githubusercontent.com/geohacker/india/master/state/india_telengana.geojson)",
+      "Bash(curl -sL -o india-states.json https://raw.githubusercontent.com/deldersveld/topojson/master/countries/india/india-states.json)",
+      "Bash(rm -f india-states.json)",
+      "Bash(curl -sL -o india-states.json https://cdn.jsdelivr.net/gh/deldersveld/topojson/countries/india/india-states.json)",
+      "Bash(curl -sIL https://raw.githubusercontent.com/Subhash9325/GeoJson-Data-of-Indian-States/master/Indian_States)",
+      "Bash(npx -y mapshaper -v)",
+      "Bash(curl -sL -o india-raw.geojson https://raw.githubusercontent.com/Subhash9325/GeoJson-Data-of-Indian-States/master/Indian_States)",
+      "Bash(npx -y mapshaper india-raw.geojson -simplify 3% -clean -o format=topojson india-states.json)",
+      "Bash(npx -y playwright --version)",
+      "Bash(npx -y playwright install chromium --with-deps)",
+      "Bash(curl -s -o /dev/null http://localhost:3000)",
+      "Bash(break)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/studio/threat-operations)",
+      "Bash(curl -s http://localhost:3000/studio/threat-operations)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/studio)"
     ]
   }
 }
