@@ -40,7 +40,18 @@
       "Bash(break)",
       "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/studio/threat-operations)",
       "Bash(curl -s http://localhost:3000/studio/threat-operations)",
-      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/studio)"
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\" http://localhost:3000/studio)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/studio/threat-intelligence)",
+      "Bash(chromium-cli --session ti)",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\\\\node_modules\" node check.mjs)",
+      "Bash(cd \"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\OneDrive\\\\Desktop\\\\CyberSutra\" && rm -f check.mjs check2.mjs screenshot-*.png && ls)",
+      "Bash(which chromium-cli *)",
+      "Read(//c//**)",
+      "Bash(NODE_PATH=\"C:/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/node_modules\" node \"C:/Users/MAINAK~1/AppData/Local/Temp/claude/c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra/1388cf16-1821-4eed-8730-f9f285847dbd/scratchpad/verify_india_intel.js\")",
+      "Bash(NODE_PATH='C:/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/node_modules' node -e ' *)"
+    ],
+    "additionalDirectories": [
+      "C:\\Users\\MAINAK CHAUDHURI\\OneDrive\\Desktop\\CyberSutra"
     ]
   }
 }

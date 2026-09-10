@@ -23,6 +23,7 @@
     "react": "19.2.8",
     "react-countup": "^6.5.3",
     "react-dom": "19.2.8",
+    "react-icons": "^5.7.0",
     "react-simple-maps": "^5.0.3",
     "recharts": "^3.10.1",
     "tailwind-merge": "^3.6.0"
