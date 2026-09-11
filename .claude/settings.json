@@ -48,7 +48,14 @@
       "Bash(which chromium-cli *)",
       "Read(//c//**)",
       "Bash(NODE_PATH=\"C:/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/node_modules\" node \"C:/Users/MAINAK~1/AppData/Local/Temp/claude/c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra/1388cf16-1821-4eed-8730-f9f285847dbd/scratchpad/verify_india_intel.js\")",
-      "Bash(NODE_PATH='C:/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/node_modules' node -e ' *)"
+      "Bash(NODE_PATH='C:/Users/MAINAK CHAUDHURI/OneDrive/Desktop/CyberSutra/node_modules' node -e ' *)",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3001/studio/detection-engineering)",
+      "Bash(timeout 60 bash -c 'until grep -q -E \"Ready in|✓ Ready|started server\" \"C:\\\\Users\\\\MAINAK~1\\\\AppData\\\\Local\\\\Temp\\\\claude\\\\c--Users-MAINAK-CHAUDHURI-OneDrive-Desktop-CyberSutra\\\\e07855a6-fe44-4ca1-a32d-048acdd9666e\\\\tasks\\\\b1yahayub.output\" 2>/dev/null; do sleep 1; done; echo READY')",
+      "Bash(curl -s -o /dev/null -w \"%{http_code}\\\\n\" http://localhost:3000/studio/detection-engineering)",
+      "Bash(npx --no-install playwright --version)",
+      "Bash(NODE_PATH=\"C:\\\\Users\\\\MAINAK CHAUDHURI\\\\AppData\\\\Roaming\\\\npm\\\\node_modules\" node -e \"console.log\\(require.resolve\\('playwright'\\)\\)\")",
+      "Bash(curl -s http://localhost:3000/studio/detection-engineering -o /dev/null -w \"%{http_code}\\\\n\")",
+      "Bash(curl -s http://localhost:3000/_next/static/chunks/webpack.js -o /dev/null -w \"%{http_code}\\\\n\")"
     ],
     "additionalDirectories": [
       "C:\\Users\\MAINAK CHAUDHURI\\OneDrive\\Desktop\\CyberSutra"
